@@ -7,10 +7,6 @@ function getNameFromCommandLine() {
 
 function getNameFromEnv() {
     // Write your code here
-    // var name = process.argv
-    // var n = name.length
-    // process.env.name = name[n-1]
-    // return process.env.name
     var Name = process.env.name
     return Name
 }
@@ -19,11 +15,11 @@ function getNameFromReadLine() {
     // Write your code here
     const readline = require('readline')
     const rl = readline.createInterface({
-    input:process.stdin,
-    output:process.stdout
+        input:process.stdin,
+        output:process.stdout
     })
-    return rl.question('',(answer) => {
-        // console.log(answer) 
+    rl.question('',(answer) => {
+        console.log(answer) 
         rl.close();
     });
 }
