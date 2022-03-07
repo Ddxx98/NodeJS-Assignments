@@ -39,13 +39,13 @@
                         <td class="text-warning"><%= user.name %></td>
                         <td class="text-warning"><%= user.email %></td>
                         <td>
-                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                            <form method="POST" action="/users/<%= user._id %>/?_method=PUT">
                                 <button class="btn btn-warning" id="edit-<%= user.name %>" type="submit">Promote</button>
                             </form>
                         </td>
                     <% } %>
                     <td>
-                        <form method="POST" action="/users/<%= user._id %>/delete?_method=DELETE">
+                        <form method="POST" action="/users/<%= user._id %>/?_method=DELETE">
                             <button class="btn btn-danger" id="delete-<%= user.name %>">Delete</button>
                         </form>
                     </td>                   

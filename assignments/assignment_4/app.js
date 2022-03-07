@@ -31,12 +31,12 @@ app.post('/users/add',async(req,res)=>{
     res.redirect('/')
 })
 
-app.put("/users/:id/edit", async (req, res) => {
+app.put("/users/:id", async (req, res) => {
     await Task.updateOne({_id: req.params.id}, [{$set:{isPromoted: {$not: "$isPromoted"}}}])
     res.redirect("/");
 })
 
-app.delete("/users/:id/delete",async(req,res)=>{
+app.delete("/users/:id",async(req,res)=>{
     await Task.deleteOne({_id: req.params.id})
     res.redirect("/");
 })
