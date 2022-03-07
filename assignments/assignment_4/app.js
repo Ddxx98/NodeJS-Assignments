@@ -32,7 +32,7 @@ app.post('/users/add',async(req,res)=>{
 })
 
 app.put("/users/:id/edit", async (req, res) => {
-    await Task.updateOne({_id: req.params.id}, {isPromoted : true})
+    await Task.updateOne({_id: req.params.id}, [{$set:{isPromoted: {$not: "$isPromoted"}}}])
     res.redirect("/");
 })
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div>
-        <table class="table table-hover table-dark">
+        <table class="table table-hover">
             <tr>
                 <th><h3>Name</h3></th>
                 <th><h3>Email</h3></th>
@@ -22,18 +22,28 @@
                     <% if(user.isPromoted == true){%>
                         <td class="text-success"><%= user.name %></td>
                         <td class="text-success"><%= user.email %></td>
+                        <td>
+                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                                <button class="btn btn-success" id="edit-<%= user.name %>" type="submit">Demote / Promote</button>
+                            </form>
+                        </td>
                     <% } else if(user.isPromoted == false) { %>
                         <td class="text-danger"><%= user.name %></td>
                         <td class="text-danger"><%= user.email %></td>
+                        <td>
+                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                                <button class="btn btn-danger" id="edit-<%= user.name %>" type="submit">Promote / Demote</button>
+                            </form>
+                        </td>
                     <% } else { %>
                         <td class="text-warning"><%= user.name %></td>
                         <td class="text-warning"><%= user.email %></td>
+                        <td>
+                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                                <button class="btn btn-warning" id="edit-<%= user.name %>" type="submit">Promote</button>
+                            </form>
+                        </td>
                     <% } %>
-                    <td>
-                        <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
-                            <button class="btn btn-success" id="edit-<%= user.name %>" type="submit">Promote / Demote</button>
-                        </form>
-                    </td>
                     <td>
                         <form method="POST" action="/users/<%= user._id %>/delete?_method=DELETE">
                             <button class="btn btn-danger" id="delete-<%= user.name %>">Delete</button>
