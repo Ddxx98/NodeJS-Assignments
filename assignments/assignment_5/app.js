@@ -12,7 +12,6 @@ const app = express(); // create a new express application
 mongoose.connect('mongodb://localhost:27017/assignment_5')
 
 
-
 app.use("/posts",(req,res,next)=>{
 
     var token = req.headers.authorization.split("Bearer ")[1];

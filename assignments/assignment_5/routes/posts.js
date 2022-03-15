@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const Post = require('../model/userData');
 const router = express.Router()
 
-router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser());
 // ============================ FETCH POSTS =====================================
 router.get("/posts", async (req, res) => {
     const posts = await Post.find({user:req.user});

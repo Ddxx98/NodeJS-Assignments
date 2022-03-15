@@ -9,7 +9,7 @@ const { body, param, validationResult } = require("express-validator")
 
 const router = express.Router()
 
-router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser());
 
 router.post("/register", body("name"), body("email"), body("password"), async (req, res) => {
     console.log(req.body);
@@ -19,7 +19,7 @@ router.post("/register", body("name"), body("email"), body("password"), async (r
             return res.status(400).json({ errors: errors.array() })
         }
         const { name, email, password } = req.body
-        bcrypt.hash(password, 10, async function (err, hash) {
+        bcrypt.hash(password, 10, async function(err, hash) {
             if (err) {
                 return res.status(400).json({
                     status: "failed",
@@ -88,6 +88,5 @@ router.post("/login", body("email"), body("password"), async (req, res) => {
         })
     }
 })
-
 
 module.exports = router
