@@ -40,6 +40,6 @@ app.use("/",loginRoutes)
 app.use("/users",userRoutes)
 app.use("/",postRoutes)
 
-app.listen(3000,()=>{  // bind the connections on this port and listen to it
+app.listen(process.env.PORT,()=>{  // bind the connections on this port and listen to it
     console.log(`server listening on ${3000}`);
 })
