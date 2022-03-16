@@ -23,7 +23,7 @@
                         <td class="text-success"><%= user.name %></td>
                         <td class="text-success"><%= user.email %></td>
                         <td>
-                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                            <form method="POST" action="/users/<%= user._id %>/?_method=PUT">
                                 <button class="btn btn-success" id="edit-<%= user.name %>" type="submit">Demote / Promote</button>
                             </form>
                         </td>
@@ -31,7 +31,7 @@
                         <td class="text-danger"><%= user.name %></td>
                         <td class="text-danger"><%= user.email %></td>
                         <td>
-                            <form method="POST" action="/users/<%= user._id %>/edit?_method=PUT">
+                            <form method="POST" action="/users/<%= user._id %>/?_method=PUT">
                                 <button class="btn btn-danger" id="edit-<%= user.name %>" type="submit">Promote / Demote</button>
                             </form>
                         </td>
